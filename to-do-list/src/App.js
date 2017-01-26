@@ -63,11 +63,7 @@ tasks5 = ['call mom' , 'do hw']
   render() {
     return (
       <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-
-        </div>
-          <h1>To Do List React App! </h1>
+          <h1>To Do</h1>
           <h3> Enter what you have to do here </h3>
           <input onChange={(event) =>{ this.setState({input: event.target.value})}}></input>
           <button onClick={()=>{ this.addTasks2(this.state.input)}}>add to your list!</button>
