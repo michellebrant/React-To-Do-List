@@ -6,7 +6,7 @@ class App extends Component {
 
   render(){
     return(
-      <div>
+      <div style={{"text-align": "center", "font-family": "helvetica"}}>
         <h1>To Do</h1>
         <h3> Enter what you have to do here </h3>
         <List />
