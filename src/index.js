@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import List from './components/list'
+import './style.css';
 
 class App extends Component {
 
   render(){
     return(
-      <div style={{"text-align": "center", "font-family": "helvetica"}}>
-        <h1>To Do</h1>
+      <div>
+        <h1 className="hi">To Do</h1>
         <h3> Enter what you have to do here </h3>
         <List />
       </div>

@@ -29,6 +29,6 @@ body {
   font-family: sans-serif;
 }
 
-#root{
-  background-color: yellow;
+.hi{
+  color: yellow;
 }

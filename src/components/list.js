@@ -5,7 +5,7 @@ class List extends Component {
   render(){
   return (
     <div>
-      <ListItem renderList = { this.props.renderList } />
+      <ListItem renderList={ this.props.renderList } />
     </div>
     )}
 }

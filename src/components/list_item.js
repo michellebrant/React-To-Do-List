@@ -55,7 +55,7 @@ class ListItem extends Component {
       <div>
         <input onChange={(event) =>{ this.setState({input: event.target.value})}}></input>
           <button onClick={()=>{ this.addTasks2(this.state.input)}}>add to your list!</button>
-        <ul style={{"list-style":"none"}}>
+        <ul>
           {this.renderList()}
         </ul>
       </div>
