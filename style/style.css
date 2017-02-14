@@ -29,22 +29,6 @@ body {
   font-family: sans-serif;
 }
 
-@import url('https://fonts.googleapis.com/css?family=Raleway');
-
-.head{
-  font-weight: bold;
-  text-align: center;
-}
-
-body{
-  font-family: 'Raleway', sans-serif;
-   text-align: center;
-}
-
-li{
-  list-style: none;
-}
-
-button{
-  margin-left: 10px;
+#root{
+  background-color: yellow;
 }
