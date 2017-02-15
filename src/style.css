@@ -29,7 +29,7 @@ body {
   font-family: sans-serif;
 }
 
-@import url('https://fonts.googleapis.com/css?family=Raleway');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
 
 .head{
   font-weight: bold;
@@ -37,7 +37,7 @@ body {
 }
 
 body{
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Roboto Condensed', sans-serif;
 }
 
 li{
@@ -46,6 +46,7 @@ li{
 
 button{
   margin-left: 10px;
+  font-family: 'Roboto Condensed', sans-serif;
 }
 
 .listclass{
@@ -60,4 +61,9 @@ button{
 
 .checkme{
   margin-right: 10px;
+}
+
+.quotes{
+  text-align: center;
+  margin: 40px;
 }
