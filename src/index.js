@@ -8,8 +8,10 @@ class App extends Component {
   render(){
     return(
       <div>
-        <h1 className="head">What's going on today?</h1>
-          <h3 classname="secondhead"> Enter what you have to do here </h3>
+        <div className='headerdiv'>
+          <h1 className="head">What's going on today?</h1>
+            <h3 className="secondhead"> Enter what you have to do here </h3>
+              </div>
             <List />
       </div>
       )

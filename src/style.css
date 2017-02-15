@@ -38,7 +38,6 @@ body {
 
 body{
   font-family: 'Raleway', sans-serif;
-   text-align: center;
 }
 
 li{
@@ -47,4 +46,18 @@ li{
 
 button{
   margin-left: 10px;
+}
+
+.listclass{
+  border: 1px solid grey;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.headerdiv{
+  text-align: center;
+}
+
+.checkme{
+  margin-right: 10px;
 }

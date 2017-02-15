@@ -44,9 +44,13 @@ class ListItem extends Component {
 
   renderList(){
   return this.state.tasks.map((item, key) =>{
-    return(<li style={{"color": this.state.tasks[key].color, "margin":"10px", "textDecoration": this.state.tasks[key].textDecoration,}} key={key}>{item.text}
-      <input type="checkbox" id="checkbox" value={item.isDone} key={key} onChange={() => {this.finishTask(key)} }  />
+    return(
+      <div className="listclass">
+        <li style={{"color": this.state.tasks[key].color, "margin":"10px", "textDecoration": this.state.tasks[key].textDecoration,}} key={key}>
+          <input className="checkme" type="checkbox" id="checkbox" value={item.isDone} key={key} onChange={() => {this.finishTask(key)} }  />
+            {item.text}
         </li>
+      </div>
         );
       });
     }
@@ -54,8 +58,10 @@ class ListItem extends Component {
   render(){
     return(
       <div>
+        <div className="headerdiv">
         <input onChange={(event) =>{ this.setState({input: event.target.value})}}></input>
           <button onClick={()=>{ this.addTasks2(this.state.input)}}>add to your list!</button>
+        </div>
         <ul>
           {this.renderList()}
         </ul>
