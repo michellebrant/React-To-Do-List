@@ -19,10 +19,22 @@ class ListItem extends Component {
        })
     }
 
+  deleteTasks(key) {
+    let toDoArray = this.state.tasks;
+    let index = key
+
+    toDoArray.splice(index, 1)
+
+
+    this.setState({
+      tasks: toDoArray,
+       })
+    }
+
   finishTask(key) {
     var realTask = this.state.tasks[key]
     var tasks = this.state.tasks.filter(function(task) { return tasks = realTask})
-      console.log(tasks[key].isDone)
+      console.log(realTask)
     if(tasks[key].isDone === false){
      tasks[key]= {
       text: this.state.tasks[key].text,
@@ -50,7 +62,10 @@ class ListItem extends Component {
         <li style={{"color": this.state.tasks[key].color, "margin":"10px", "textDecoration": this.state.tasks[key].textDecoration,}} key={key}>
           <input className="checkme" type="checkbox" id="checkbox" value={item.isDone} key={key} onChange={() => {this.finishTask(key)} }  />
             {item.text}
-            <img src={require("../trash.png")} alt="delete" />
+            <img
+            src={require("../trash.png")} alt="delete"
+
+            onClick={()=> { this.deleteTasks(key)}}/>
         </li>
       </div>
         );
