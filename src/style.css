@@ -44,6 +44,17 @@ li{
   list-style: none;
 }
 
+img {
+  height: 25px;
+  width: 25px;
+  float: right;
+  display: none;
+}
+
+li:hover img{
+  display: inline;
+}
+
 button{
   margin-left: 10px;
   font-family: 'Roboto Condensed', sans-serif;

@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import List from './components/list'
 import './style.css';
 import Quote from './components/quote';
+
 class App extends Component {
 
   render(){

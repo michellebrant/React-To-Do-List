@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '../style.css';
 
+
 class ListItem extends Component {
   constructor(props){
    super(props)
@@ -49,6 +50,7 @@ class ListItem extends Component {
         <li style={{"color": this.state.tasks[key].color, "margin":"10px", "textDecoration": this.state.tasks[key].textDecoration,}} key={key}>
           <input className="checkme" type="checkbox" id="checkbox" value={item.isDone} key={key} onChange={() => {this.finishTask(key)} }  />
             {item.text}
+            <img src={require("../trash.png")} alt="delete" />
         </li>
       </div>
         );
