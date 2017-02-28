@@ -8,6 +8,8 @@ class ListItem extends Component {
 
    this.state = {
     tasks: [],
+    input: ''
+
     };
   }
 
@@ -16,7 +18,9 @@ class ListItem extends Component {
       toDo.push({text: input, isDone: false, color: "black", textDecoration: 'none'})
     this.setState({
       tasks: toDo,
+      input:''
        })
+
     }
 
   deleteTasks(key) {
@@ -58,7 +62,7 @@ class ListItem extends Component {
   renderList(){
   return this.state.tasks.map((item, key) =>{
     return(
-      <div className="listclass">
+      <div className="listclass" key={key}>
         <li style={{"color": this.state.tasks[key].color, "margin":"10px", "textDecoration": this.state.tasks[key].textDecoration,}} key={key}>
           <input className="checkme" type="checkbox" id="checkbox" value={item.isDone} key={key} onChange={() => {this.finishTask(key)} }  />
             {item.text}
@@ -76,7 +80,7 @@ class ListItem extends Component {
     return(
       <div>
         <div className="headerdiv">
-        <input onChange={(event) =>{ this.setState({input: event.target.value})} }></input>
+        <input value={this.state.input} onChange={(event) =>{ this.setState({input: event.target.value})} }></input>
           <button onClick={()=>{ this.addTasks2(this.state.input)}}>add to your list!</button>
         </div>
         <ul>
