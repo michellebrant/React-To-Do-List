@@ -9,7 +9,7 @@ class ListItem extends Component {
    super(props)
 
    this.state = {
-    tasks: [],
+    tasks: localTasks,
     input: ''
 
     };
@@ -36,6 +36,8 @@ class ListItem extends Component {
     this.setState({
       tasks: toDoArray,
        })
+
+      localStorage.setItem('tasks', JSON.stringify(toDoArray))
     }
 
   finishTask(key) {
@@ -79,22 +81,6 @@ class ListItem extends Component {
       });
     }
 
-  renderLocalStorage(){
-    return localTasks.map((item, key) =>{
-      return(
-        <div className="listclass" key={key} >
-          <li style={{'color': item.color, 'margin':'10px', 'textDecoration':item.textDecoration}} key={key}>
-            <input className="checkme" type="checkbox" id="checkbox" value={item.isDone} key={key} onChange={() => {this.finishTask(key)} } />
-             {item.text}
-            <img
-            src={require('../trash.png')} alt="delete"
-            onClick={()=> {this.deleteTasks(key)}} />
-          </li>
-        </div>
-        )}
-  )}
-
-
   render(){
     return(
       <div>
@@ -103,7 +89,6 @@ class ListItem extends Component {
           <button onClick={()=>{ this.addTasks2(this.state.input)}}>add to your list!</button>
         </div>
         <ul>
-          {this.renderLocalStorage() }
           {this.renderList()}
         </ul>
       </div>
