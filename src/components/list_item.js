@@ -43,7 +43,6 @@ class ListItem extends Component {
   finishTask(key) {
     var realTask = this.state.tasks[key]
     var tasks = this.state.tasks.filter(function(task) { return tasks = realTask})
-      console.log(realTask)
     if(tasks[key].isDone === false){
      tasks[key]= {
       text: this.state.tasks[key].text,
@@ -52,6 +51,7 @@ class ListItem extends Component {
       textDecoration: 'line-through'
      }
       this.setState({ tasks: tasks });
+      localStorage.setItem('tasks', JSON.stringify(tasks))
      }
     else if (tasks[key].isDone === true){
       tasks[key]= {
@@ -61,23 +61,39 @@ class ListItem extends Component {
         textDecoration: 'none'
       }
       this.setState({ tasks: tasks });
+      localStorage.setItem('tasks', JSON.stringify(tasks))
     }
   }
 
   renderList(){
   return this.state.tasks.map((item, key) =>{
-    return(
-      <div className="listclass" key={key}>
-        <li style={{"color": this.state.tasks[key].color, "margin":"10px", "textDecoration": this.state.tasks[key].textDecoration,}} key={key}>
-          <input className="checkme" type="checkbox" id="checkbox" value={item.isDone} key={key} onChange={() => {this.finishTask(key)} }  />
-            {item.text}
-            <img
-            src={require("../trash.png")} alt="delete"
+    if (this.state.tasks[key].isDone === true)
+      return(
+        <div className="listclass" key={key}>
+          <li style={{"color": this.state.tasks[key].color, "margin":"10px", "textDecoration": this.state.tasks[key].textDecoration,}} key={key}>
+            <input type="checkbox" checked={this.state.tasks[key].isDone} key={key} onChange={() => {this.finishTask(key)} }  />
+              {item.text}
+              <img
+              src={require("../trash.png")} alt="delete"
 
-            onClick={()=> { this.deleteTasks(key)}}/>
-        </li>
-      </div>
-        );
+              onClick={()=> { this.deleteTasks(key)}}/>
+          </li>
+        </div>
+      )
+      else
+        return(
+          <div className="listclass" key={key}>
+            <li style={{"color": this.state.tasks[key].color, "margin":"10px", "textDecoration": this.state.tasks[key].textDecoration,}} key={key}>
+              <input type="checkbox" key={key} checked={this.state.tasks[key].isDone} onChange={() => {this.finishTask(key)} }  />
+                {item.text}
+                <img
+                src={require("../trash.png")} alt="delete"
+
+                onClick={()=> { this.deleteTasks(key)}}/>
+            </li>
+          </div>
+          )
+
       });
     }
 
@@ -85,7 +101,7 @@ class ListItem extends Component {
     return(
       <div>
         <div className="headerdiv">
-        <input value={this.state.input} onChange={(event) =>{ this.setState({input: event.target.value})} }></input>
+        <input onChange={(event) =>{ this.setState({input: event.target.value})} }></input>
           <button onClick={()=>{ this.addTasks2(this.state.input)}}>add to your list!</button>
         </div>
         <ul>
