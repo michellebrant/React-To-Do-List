@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import '../style.css';
 
 
+let localTasks = JSON.parse(localStorage.getItem('tasks')) || [];
+
 class ListItem extends Component {
   constructor(props){
    super(props)
@@ -15,7 +17,8 @@ class ListItem extends Component {
 
   addTasks2(input) {
     let toDo = this.state.tasks
-      toDo.push({text: input, isDone: false, color: "black", textDecoration: 'none'})
+    toDo.push({text: input, isDone: false, color: "black", textDecoration: 'none'})
+    localStorage.setItem('tasks', JSON.stringify(toDo))
     this.setState({
       tasks: toDo,
       input:''
@@ -76,6 +79,22 @@ class ListItem extends Component {
       });
     }
 
+  renderLocalStorage(){
+    return localTasks.map((item, key) =>{
+      return(
+        <div className="listclass" key={key} >
+          <li style={{'color': item.color, 'margin':'10px', 'textDecoration':item.textDecoration}} key={key}>
+            <input className="checkme" type="checkbox" id="checkbox" value={item.isDone} key={key} onChange={() => {this.finishTask(key)} } />
+             {item.text}
+            <img
+            src={require('../trash.png')} alt="delete"
+            onClick={()=> {this.deleteTasks(key)}} />
+          </li>
+        </div>
+        )}
+  )}
+
+
   render(){
     return(
       <div>
@@ -84,6 +103,7 @@ class ListItem extends Component {
           <button onClick={()=>{ this.addTasks2(this.state.input)}}>add to your list!</button>
         </div>
         <ul>
+          {this.renderLocalStorage() }
           {this.renderList()}
         </ul>
       </div>
