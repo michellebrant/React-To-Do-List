@@ -109,7 +109,6 @@ const month = (currentdate.getDate() )
             { this.getMonth() }
             <h1 className="head">What's going on today?</h1>
                 </div>
-            }
             <List />
       </div>
       )
