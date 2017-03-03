@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import List from './components/list'
 import './style.css';
+import './animate.css';
 import Quote from './components/quote';
 
 const currentdate = new Date();
@@ -105,10 +106,8 @@ const month = (currentdate.getDate() )
       <div>
         <Quote />
           <div className='headerdiv'>
-          <p> Today is </p>
             { this.getMonth() }
             <h1 className="head">What's going on today?</h1>
-              <h3 className="secondhead"> Enter what you have to do here </h3>
                 </div>
             }
             <List />

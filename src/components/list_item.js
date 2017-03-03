@@ -10,7 +10,8 @@ class ListItem extends Component {
 
    this.state = {
     tasks: localTasks,
-    input: ''
+    input: '',
+    clicked: false
 
     };
   }
@@ -101,7 +102,7 @@ class ListItem extends Component {
     return(
       <div>
         <div className="headerdiv">
-        <input onChange={(event) =>{ this.setState({input: event.target.value})} }></input>
+        <input type="text" onChange={(event) =>{ this.setState({input: event.target.value})} }></input><br />
           <button onClick={()=>{ this.addTasks2(this.state.input)}}>add to your list!</button>
         </div>
         <ul>
