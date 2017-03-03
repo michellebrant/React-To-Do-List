@@ -4,15 +4,14 @@ import '../style.css';
 
 let localTasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
+
 class ListItem extends Component {
   constructor(props){
    super(props)
 
    this.state = {
     tasks: localTasks,
-    input: '',
-    clicked: false
-
+    input: ' ',
     };
   }
 
@@ -20,9 +19,10 @@ class ListItem extends Component {
     let toDo = this.state.tasks
     toDo.push({text: input, isDone: false, color: "black", textDecoration: 'none'})
     localStorage.setItem('tasks', JSON.stringify(toDo))
+    localStorage.setItem('input', '')
     this.setState({
       tasks: toDo,
-      input:''
+      input: ' '
        })
 
     }
@@ -102,10 +102,10 @@ class ListItem extends Component {
     return(
       <div>
         <div className="headerdiv">
-        <input type="text" onChange={(event) =>{ this.setState({input: event.target.value})} }></input><br />
+        <input type="text" value={this.state.input} onChange={(event) =>{ this.setState({input: event.target.value})} }></input><br />
           <button onClick={()=>{ this.addTasks2(this.state.input)}}>add to your list!</button>
         </div>
-        <ul>
+        <ul className="wrap">
           {this.renderList()}
         </ul>
       </div>
