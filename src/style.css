@@ -17,6 +17,7 @@ body{
   position: fixed;
   background-attachment: fixed;
   width: 100%;
+  cursor:'pointer';
 }
 
 input[type=text] {
