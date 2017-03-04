@@ -6,7 +6,7 @@ import './animate.css';
 import Quote from './components/quote';
 
 const currentdate = new Date();
-const day = (currentdate.getMonth()+1)
+const day = currentdate.getDate()
 const year = currentdate.getFullYear()
                 // + currentdate.getHours() + ":"
                 // + currentdate.getMinutes()
@@ -14,7 +14,7 @@ const year = currentdate.getFullYear()
 class App extends Component {
 
 getMonth(){
-const month = (currentdate.getDate() )
+const month = ((currentdate.getMonth()+1))
     if (month === 1) {
        return(
         <div>
