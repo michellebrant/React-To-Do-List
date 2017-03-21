@@ -20,9 +20,20 @@ class Quote extends Component {
     '"Little minds are tamed and subdued by misfortune; but great minds rise above it." - Washington Irving',
     '"I find that the harder I work, the more luck I seem to have." - Thomas Jefferson',
     '"Twenty years from now you will be more disappointed by the things that you didn’t do than by the ones you did do, so throw off the bowlines, sail away from safe harbor, catch the trade winds in your sails. Explore, Dream, Discover." - Mark Twain',
-    '"You don’t have to be great to start, but you have to start to be great." - Zig Ziglar'
+    '"You don’t have to be great to start, but you have to start to be great." - Zig Ziglar',
+    '“The Way Get Started Is To Quit Talking And Begin Doing.” -Walt Disney',
+    '“The Pessimist Sees Difficulty In Every Opportunity. The Optimist Sees The Opportunity In Every Difficulty.” -Winston Churchill',
+    '“Don’t Let Yesterday Take Up Too Much Of Today.” -Will Rogers',
+    '“You Learn More From Failure Than From Success. Don’t Let It Stop You. Failure Builds Character.”- Unknown',
+    '“It’s Not Whether You Get Knocked Down, It’s Whether You Get Up.”- Vince Lombardi',
+    '“If You Are Working On Something That You Really Care About, You Don’t Have To Be Pushed. The Vision Pulls You.”- Steve Jobs',
+    '“People Who Are Crazy Enough To Think They Can Change The World, Are The Ones Who Do.”- Rob Siltanen',
+    '“Failure Will Never Overtake Me If My Determination To Succeed Is Strong Enough.”- Og Mandino',
+    '“Entrepreneurs Are Great At Dealing With Uncertainty And Also Very Good At Minimizing Risk. That’s The Classic Entrepreneur.”- Mohnish Pabrai',
+    '“We May Encounter Many Defeats But We Must Not Be Defeated.”- Maya Angelou'
+
     ]
-    let i = Math.floor(Math.random() * 22)
+    let i = Math.floor(Math.random() * 32)
     let putquote = quotes[i]
     return(
       <div className='quotes'>
